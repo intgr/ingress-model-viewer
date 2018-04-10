@@ -11,6 +11,8 @@ var simple = {
   Ultrastrike: 'L8',
   ResShield: 'VERY_RARE',
   PowerCube: 'L8',
+  BoostedPowerCube: 'VERY_RARE',
+  BoostedPowerCubeK: 'VERY_RARE',
   LinkAmp: 'RARE',
   HeatSink: 'VERY_RARE',
   MultiHack: 'VERY_RARE',
