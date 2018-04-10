@@ -14,6 +14,7 @@ var simple = {
   BoostedPowerCube: 'VERY_RARE',
   BoostedPowerCubeK: 'VERY_RARE',
   LinkAmp: 'RARE',
+  UltraLinkAmp: 'VERY_RARE',
   HeatSink: 'VERY_RARE',
   MultiHack: 'VERY_RARE',
   ForceAmp: 'RARE',
