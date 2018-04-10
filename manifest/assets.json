@@ -91,6 +91,7 @@
         "TransmuterDefenseXmMesh": { "path": "scanner/transmuterDefenseResourceXM.obj" },
         "TransmuterDefenseResourceUnitMesh": { "path": "scanner/transmuterDefenseResourceUnit.obj" },
         "InterestCapsuleMesh": { "path": "scanner/interestCapsuleResource.obj" },
+        "InterestCapsuleXmMesh": { "path": "scanner/interestCapsuleResourceXM.obj" },
         "InterestCapsuleResourceUnitMesh": { "path": "scanner/interestCapsuleResourceUnit.obj" },
         "KeyCapsuleMesh": { "path": "scanner/keyCapsuleResource.obj" },
         "KeyCapsuleXmMesh": { "path": "scanner/keyCapsuleResourceXM.obj" },

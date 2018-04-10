@@ -170,6 +170,7 @@ var Constants = {
       ResonatorXm: 'ResonatorXMMesh',
       Capsule: 'CapsuleMesh',
       InterestCapsule: 'InterestCapsuleMesh',
+      InterestCapsuleXm: 'InterestCapsuleXmMesh',
       KeyCapsule: 'KeyCapsuleMesh',
       KeyCapsuleXm: 'KeyCapsuleXmMesh',
       CapsuleXm: 'CapsuleXmMesh',

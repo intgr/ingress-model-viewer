@@ -79,12 +79,22 @@ class InterestCapsule extends Entity {
   constructor(engine) {
     super(engine);
     this.addDrawable('InterestCapsule', new Inventory.InterestCapsule());
-    this.addDrawable('CapsuleXm', new Inventory.CapsuleXm());
+    this.addDrawable('InterestCapsuleXm', new Inventory.InterestCapsuleXm());
     this.drawables.InterestCapsule.uniforms.u_color0 = vec4.clone(Constants.qualityColors.VERY_RARE);
   }
 }
 
 InventoryItems.InterestCapsule = InterestCapsule;
+
+class QuantumCapsule extends Entity {
+  constructor(engine) {
+    super(engine);
+    this.addDrawable('InterestCapsule', new Inventory.InterestCapsule());
+    this.drawables.InterestCapsule.uniforms.u_color0 = vec4.clone(Constants.qualityColors.VERY_RARE);
+  }
+}
+
+InventoryItems.QuantumCapsule = QuantumCapsule;
 
 class PortalKeyResourceUnit extends Entity {
   constructor(engine){
