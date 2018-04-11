@@ -44,10 +44,13 @@
     <fieldset>
       <legend>Camera</legend>
       <label>Distance:</label>
-      <input type="range" max="5" min="1" v-model="distance" />
+      <input type="range" max="5" min="1" step="0.2" v-model="distance" />
       <br/>
       <label>Angle:</label>
       <input type="range" max="90" min="-90" v-model="angle" />
+      <br/>
+      <label>Rotation:</label>
+      <input type="range" min="0" max="360" v-model="rotation" /> {{rotation}}
       <br/>
     </fieldset>
   </form>
@@ -58,6 +61,7 @@
       data: {
         distance: 2,
         angle: 30,
+        rotation: 30,
         inventoryOptions: Object.keys(IMV.Entities.Inventory),
         inventory: "Xmp"
       },
@@ -112,8 +116,8 @@
       var item = new IMV.Entities.Inventory[app1.inventory](engine);
     };
 
-    var times = 100;
-    var index = 0;
+    var times = 180/Math.PI;
+    //var index = 0;
 
     IMV.AssetLoader.loadResource('/manifest/assets.json', 'text').then(function (val) {
       assets = JSON.parse(val);
@@ -121,14 +125,14 @@
         init(assets);
 
         setInterval(function () {
-          var x = app1.distance * Math.cos(app1.angle * Math.PI / 180) * Math.sin(index / times);
-          var y = app1.distance * Math.cos(app1.angle * Math.PI / 180) * Math.cos(index / times);
+          var x = app1.distance * Math.cos(app1.angle * Math.PI / 180) * Math.sin(app1.rotation / times);
+          var y = app1.distance * Math.cos(app1.angle * Math.PI / 180) * Math.cos(app1.rotation / times);
           var height = app1.distance * Math.sin(app1.angle * Math.PI / 180);
 
           engine.camera.setFar(500).setPosition([x, height, y]).lookAt([0.0, 0.0, 0.0]);
           engine.updateView();
 
-          index++;
+          //index++;
         }, 30);
       }
     });
