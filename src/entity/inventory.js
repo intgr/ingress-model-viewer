@@ -151,6 +151,8 @@ InventoryItems = {
   "Multi-hack Very Rare": createItemEntity('MultiHack', 'VERY_RARE', 60),
   "Force Amp": createItemEntity('ForceAmp', 'RARE', 65),
   "Turret": createItemEntity('Turret', 'RARE', 310),
+  "ITO EN Transmuter–": createItemEntity('TransmuterAttack', 'VERY_RARE', 20),
+  "ITO EN Transmuter+": createItemEntity('TransmuterDefense', 'VERY_RARE', 150),
   "Capsule": createItemEntity('Capsule', 'RARE', 75),
   "ADA Refactor": FlipCardAda,
   "JARVIS Virus": FlipCardJarvis,
