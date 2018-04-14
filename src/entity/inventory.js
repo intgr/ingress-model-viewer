@@ -4,7 +4,7 @@ import Inventory from '../drawable/inventory';
 import { vec4 } from 'gl-matrix';
 
 // Set to 'old' if 1.128.0 or older; otherwise 'new'
-export var ASSET_VERSION = 'old';
+export var ASSET_VERSION = 'new';
 
 // TODO: Deprecate in favor of a proper scene graph
 var InventoryItems = {};
@@ -104,16 +104,36 @@ function createKeyCapsule(color) {
 
 InventoryItems = {
   "XMP Burster L8": createItemEntity('Xmp', 'L8', 45),
+  "XMP Burster L7": createItemEntity('Xmp', 'L7', 45),
+  "XMP Burster L6": createItemEntity('Xmp', 'L6', 45),
+  "XMP Burster L5": createItemEntity('Xmp', 'L5', 45),
   "XMP Burster L4": createItemEntity('Xmp', 'L4', 45),
+  "XMP Burster L3": createItemEntity('Xmp', 'L3', 45),
+  "XMP Burster L2": createItemEntity('Xmp', 'L2', 45),
   "XMP Burster L1": createItemEntity('Xmp', 'L1', 45),
   "Ultra Strike L8": createItemEntity('Ultrastrike', 'L8', 320),
+  "Ultra Strike L7": createItemEntity('Ultrastrike', 'L7', 320),
+  "Ultra Strike L6": createItemEntity('Ultrastrike', 'L6', 320),
+  "Ultra Strike L5": createItemEntity('Ultrastrike', 'L5', 320),
   "Ultra Strike L4": createItemEntity('Ultrastrike', 'L4', 320),
+  "Ultra Strike L3": createItemEntity('Ultrastrike', 'L3', 320),
+  "Ultra Strike L2": createItemEntity('Ultrastrike', 'L2', 320),
   "Ultra Strike L1": createItemEntity('Ultrastrike', 'L1', 320),
   "Resonator L8": createItemEntity('Resonator', 'L8', 15),
+  "Resonator L7": createItemEntity('Resonator', 'L7', 15),
+  "Resonator L6": createItemEntity('Resonator', 'L6', 15),
+  "Resonator L5": createItemEntity('Resonator', 'L5', 15),
   "Resonator L4": createItemEntity('Resonator', 'L4', 15),
+  "Resonator L3": createItemEntity('Resonator', 'L3', 15),
+  "Resonator L2": createItemEntity('Resonator', 'L2', 15),
   "Resonator L1": createItemEntity('Resonator', 'L1', 15),
   "Power Cube L8": createItemEntity('PowerCube', 'L8', 60),
+  "Power Cube L7": createItemEntity('PowerCube', 'L7', 60),
+  "Power Cube L6": createItemEntity('PowerCube', 'L6', 60),
+  "Power Cube L5": createItemEntity('PowerCube', 'L5', 60),
   "Power Cube L4": createItemEntity('PowerCube', 'L4', 60),
+  "Power Cube L3": createItemEntity('PowerCube', 'L3', 60),
+  "Power Cube L2": createItemEntity('PowerCube', 'L2', 60),
   "Power Cube L1": createItemEntity('PowerCube', 'L1', 60),
   "Lawson Power Cube": createItemEntity('BoostedPowerCube', 'VERY_RARE', 336),
   "Circle-K Power Cube": createItemEntity('BoostedPowerCubeK', 'VERY_RARE', 246),
@@ -139,7 +159,7 @@ InventoryItems = {
   "Key Locker Blue": createKeyCapsule('blue'),
   "Key Locker White": createKeyCapsule('white'),
   "Key Locker Red": createKeyCapsule('red'),
-  "Key Locker Yellow": createKeyCapsule('yellow'),
+  "Key Locker Yellow": createKeyCapsule('yellow')
 };
 
 if (ASSET_VERSION === 'old') {

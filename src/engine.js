@@ -36,7 +36,7 @@ class Engine {
     {
       throw 'Could not initialize webgl';
     }
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
     this.gl = gl;
     this.camera = new Camera(canvas.width, canvas.height);
     this.camera.setPosition(
