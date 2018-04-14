@@ -36,12 +36,6 @@
 <body>
   <form id="app1">
     <fieldset>
-      <legend>Inventory</legend>
-      <select v-model="inventory" @change="changeInventory()">
-        <option :value="inventoryOption" v-for="inventoryOption in inventoryOptions">{{inventoryOption}}</option>
-      </select>
-    </fieldset>
-    <fieldset>
       <legend>Camera</legend>
       <label>Distance:</label>
       <input type="range" max="5" min="1" step="0.2" v-model="distance" />
@@ -53,6 +47,16 @@
       <input type="range" min="0" max="360" v-model="rotation" /> {{rotation}}
       <br/>
     </fieldset>
+    <fieldset>
+      <legend>Inventory</legend>
+      <ul style="list-style-type: none; padding: 0; height: 380px; overflow: scroll;">
+        <li v-for="itemName in inventoryOptions">
+          <a href="" v-on:click.prevent="changeInventory(itemName)">
+            {{itemName}}
+          </a>
+        </li>
+      </ul>
+    </fieldset>
   </form>
   <canvas id="screen" style="position: absolute; left: 300px; top: 0px;height: 100%"></canvas>
   <script type="text/javascript">
@@ -63,12 +67,15 @@
         angle: 30,
         rotation: 30,
         inventoryOptions: Object.keys(IMV.Entities.Inventory),
-        inventory: "Xmp"
+        inventory: "XMP Burster L8"
       },
       methods: {
-        changeInventory: function () {
+        changeInventory: function (itemName) {
           this.clear();
-          var item = new IMV.Entities.Inventory[this.inventory](engine);
+          this.inventory = itemName;
+          var item = IMV.Entities.Inventory[itemName];
+          this.rotation = item.rotation || 30;
+          new item(engine);
         },
         clear: function () {
           var drawablesLength = engine.objectRenderer.drawables.length;
@@ -89,6 +96,12 @@
     });
 
     var updateCamera = function () {
+      var x = app1.distance * Math.cos(app1.angle * Math.PI / 180) * Math.sin(app1.rotation / times);
+      var y = app1.distance * Math.cos(app1.angle * Math.PI / 180) * Math.cos(app1.rotation / times);
+      var height = app1.distance * Math.sin(app1.angle * Math.PI / 180);
+
+      engine.camera.setFar(500).setPosition([x, height, y]).lookAt([0.0, 0.0, 0.0]);
+
       engine.updateView();
       window.requestAnimationFrame(updateCamera);
     };
@@ -117,23 +130,15 @@
     };
 
     var times = 180/Math.PI;
-    //var index = 0;
 
     IMV.AssetLoader.loadResource('/manifest/assets.json', 'text').then(function (val) {
       assets = JSON.parse(val);
       if (assets) {
+        if (IMV.Entities.Inventory['MUFG Capsule']) {
+          // File does not exist in Ingress 1.128.0 and older versions
+          delete assets.mesh["InterestCapsuleXmMesh"];
+        }
         init(assets);
-
-        setInterval(function () {
-          var x = app1.distance * Math.cos(app1.angle * Math.PI / 180) * Math.sin(app1.rotation / times);
-          var y = app1.distance * Math.cos(app1.angle * Math.PI / 180) * Math.cos(app1.rotation / times);
-          var height = app1.distance * Math.sin(app1.angle * Math.PI / 180);
-
-          engine.camera.setFar(500).setPosition([x, height, y]).lookAt([0.0, 0.0, 0.0]);
-          engine.updateView();
-
-          //index++;
-        }, 30);
       }
     });
 
