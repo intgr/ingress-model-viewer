@@ -102,6 +102,17 @@ function createKeyCapsule(color) {
   return Locker;
 }
 
+class Fracker extends Entity {
+  constructor(engine) {
+    super(engine);
+    this.addDrawable('Fracker', new Inventory.Fracker());
+    this.addDrawable('FrackerXm', new Inventory.FrackerXm());
+    this.drawables.FrackerXm.uniforms.u_teamColor = vec4.clone(Constants.xmColors.coreGlowChaotic);
+    this.drawables.FrackerXm.uniforms.u_altColor = vec4.clone(Constants.xmColors.coreGlowChaoticAlt);
+  }
+}
+Fracker.rotation = 185;
+
 InventoryItems = {
   "XMP Burster L8": createItemEntity('Xmp', 'L8', 45),
   "XMP Burster L7": createItemEntity('Xmp', 'L7', 45),
@@ -157,6 +168,7 @@ InventoryItems = {
   "ADA Refactor": FlipCardAda,
   "JARVIS Virus": FlipCardJarvis,
   "Portal Key": PortalKey,
+  "Portal Fracker": Fracker,
   "Key Locker Green": createKeyCapsule('green'),
   "Key Locker Blue": createKeyCapsule('blue'),
   "Key Locker White": createKeyCapsule('white'),
