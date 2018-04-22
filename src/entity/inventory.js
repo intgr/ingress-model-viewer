@@ -113,6 +113,14 @@ class Fracker extends Entity {
 }
 Fracker.rotation = 185;
 
+class MediaCube extends Entity {
+  constructor(engine) {
+    super(engine);
+    this.addDrawable('MediaCube', new Inventory.MediaCube());
+  }
+}
+MediaCube.rotation = 60;
+
 InventoryItems = {
   "XMP Burster L8": createItemEntity('Xmp', 'L8', 45),
   "XMP Burster L7": createItemEntity('Xmp', 'L7', 45),
@@ -173,7 +181,8 @@ InventoryItems = {
   "Key Locker Blue": createKeyCapsule('blue'),
   "Key Locker White": createKeyCapsule('white'),
   "Key Locker Red": createKeyCapsule('red'),
-  "Key Locker Yellow": createKeyCapsule('yellow')
+  "Key Locker Yellow": createKeyCapsule('yellow'),
+  "Media": MediaCube
 };
 
 if (ASSET_VERSION === 'old') {
